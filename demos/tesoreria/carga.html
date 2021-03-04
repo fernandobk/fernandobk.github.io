@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" >
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <script src="funciones.js"></script>
+    <script>window.ameco = {"tmp":{},"username":"admin"}</script>
+</head>
+<body style="width: 75vw; margin: auto;">
+    <script src="tesoreria.js"></script>
+
+    <style>
+        a.nav-link{cursor:pointer; color:blue;}
+    </style>
+
+    <section class="pl-5 my-5"> <!-- Titular -->
+        <a href="/"><i class="fas fa-chevron-left"></i>&emsp;Volver</a>
+        <div id="titulo" class="h1">Cargar movimiento</div>
+        <div id="subtitulo" class="pl-5">
+            Seleccione la pestaña correspondiente según el movimiento que va a agregar.<br />
+            Use puntos para decimales.
+        </div>
+    </section>
+
+    <section class="pl-5 my-5"> <!-- Contenido -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a id="tab_egreso" class="nav-link active font-weight-bold" onclick="c.cambiar_clasif_asiento(this)">Egreso</a>
+            </li>
+            <li class="nav-item">
+                <a id="tab_ingreso" class="nav-link" onclick="c.cambiar_clasif_asiento(this)">Ingreso</a>
+            </li>
+            <li class="nav-item">
+                <a id="tab_movctas" class="nav-link" onclick="c.cambiar_clasif_asiento(this)">Movimiento entre cuentas</a>
+            </li>
+        </ul>
+        
+        <div class="contaniner">
+            <div class="row">
+                <div class="col border p-3">
+                    <div class="h3 text-right pb-3"><span id="titulo_clasif_asiento">...</span>&nbsp;<i class="fas fa-caret-left"></i></div>
+                    <div class="input-group p-1">
+                        <label for="fecha_mov" class="input-group-text">Fecha del movimiento</label>
+                        <input type="date" id="fecha_mov" class="form-control" required="required" />
+                    </div>
+                    <div class="input-group p-1">
+                        <label for="comentario" class="input-group-text">Comentario</label>
+                        <textarea id="comentario" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col border p-3"> <!-- Partida -->
+                    <div class="h3 text-right pb-3">Partida&nbsp;<i class="fas fa-caret-left"></i></div>
+                    <div class="input-group p-1"> 
+                        <datalist id="p1_dl_cuenta"></datalist><!--Este DataList siempre debe ser el primer elemento de este div-->
+                        <label for="p1_cuenta" class="input-group-text">Cuenta</label>
+                        <input id="p1_in_cuenta" class="form-control" list="p1_dl_cuenta" placeholder="Escriba para buscar..." title="Seleccione un item de la lista" onblur="c.validar_cuenta(this)" />
+                        <label class="input-group-text" hidden="hidden"><i class="fas fa-exclamation-triangle"></i></label>
+                    </div>
+                    <div class="input-group p-1">
+                        <label for="p1_monto" class="input-group-text">Monto $</label>
+                        <input type="text" id="p1_monto" class="form-control" placeholder="1000,00" pattern="[0-9]+([,?|.?][0-9]{0,2})?" onblur="c.validar_monto(this)">
+                        <label class="input-group-text" hidden="hidden"><i class="fas fa-exclamation-triangle"></i></label>
+                    </div>
+                    <div class="input-group p-1">
+                        <label for="p1_comprobante" class="input-group-text">Detalles</label>
+                        <input id="p1_comprobante" class="form-control" />
+                    </div>
+                    <div id="p1_proveedor" class="input-group p-1">
+                        <input id="p1_proveedor_razon" class="form-control" placeholder="Proveedor - Razón" />
+                        <input id="p1_proveedor_cuit" class="form-control" placeholder="CUIT (sin guiones)" maxlength="11" />
+                    </div>
+                    
+                    <div class="text-center p-1">
+                        <button class="btn btn-sm btn-success" onclick="c.carga_asiento(1)">Agregar</button>
+                    </div>
+                </div>
+
+                <div class="col border p-3"> <!-- Contrapartida -->
+                    <div class="h3 text-right pb-3">Contrapartida&nbsp;<i class="fas fa-caret-left"></i></div>
+                    <div class="input-group p-1">
+                        <datalist id="p2_dl_cuenta"></datalist><!--Este DataList siempre debe ser el primer elemento de este div-->
+                        <label for="p2_cuenta" class="input-group-text">Disponibilidades</label>
+                        <input id="p2_in_cuenta" class="form-control" list="p2_dl_cuenta" placeholder="Escriba para buscar..." title="Seleccione un item de la lista" onblur="c.validar_cuenta(this)" />
+                        <label class="input-group-text" hidden="hidden"><i class="fas fa-exclamation-triangle"></i></label>
+                    </div>
+                    <div class="input-group p-1">
+                        <label for="p2_monto" class="input-group-text">Monto $</label>
+                        <input type="text" id="p2_monto" class="form-control" placeholder="1000,00" pattern="[0-9]+([,?|.?][0-9]{0,2})?" onblur="c.validar_monto(this)">
+                        <label class="input-group-text" hidden="hidden"><i class="fas fa-exclamation-triangle"></i></label>
+                    </div>
+                    <div class="input-group p-1">
+                        <label for="p2_comprobante" class="input-group-text">Detalles</label>
+                        <input id="p2_comprobante" class="form-control" />
+                    </div>
+
+                    <div class="text-center p-1">
+                        <button class="btn btn-sm btn-success" onclick="c.carga_asiento(2)">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 mt-5"> <!-- Libro diario -->
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th width="60%">Cuenta</th>
+                        <th width="20%">Partida</th>
+                        <th width="20%">Contrapartida</th>
+                    </tr>
+                </thead>
+                <tbody id="tb_librodiario"></tbody>
+                <thead>
+                    <tr id="tb_sumasiguales" class="border-top">
+                        <th class="text-right">SUMAS IGUALES</th>
+                        <th>--</th>
+                        <th>--</th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="text-center">
+                <hr />
+                <button id="btn_guardar" class="btn btn-success" onclick="c.guardar()">&check;&nbsp;Guardar</button>
+                <button class="btn btn-link" onclick="c.limpiar_form()">Limpiar</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let c = new Tesoreria_alta;
+        c.init();
+    </script>
+</body>
+</html>

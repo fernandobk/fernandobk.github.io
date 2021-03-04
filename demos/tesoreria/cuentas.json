@@ -1,0 +1,36 @@
+{
+    "activos":[
+        {"nombre":"Efectivo", "rubro":"caja"},
+        {"nombre":"Cheques a cobrar", "rubro":"valores_a_depositar"},
+        {"nombre":"Cta Cte", "rubro":"cta_cte"},
+        {"nombre":"MercadoPago", "rubro":"cta_cte"}
+    ],
+    "pasivos":[
+        {"nombre":"Cheques Propios", "rubro":"valores_a_pagar"},
+        {"nombre":"Proveedores", "rubro":"proveedores"},
+        {"nombre":"Tarjetas de crédito", "rubro":"acreedores"}
+    ],
+    "ingresos":[
+        {"nombre":"Aporte Socio", "rubro":true},
+        {"nombre":"Otros ingresos", "rubro":true}
+    ],
+    "egresos":[
+        {"nombre":"Honorarios Contables", "rubro":true},
+        {"nombre":"Honorarios Informáticos", "rubro":true},
+        {"nombre":"Honorarios Jurídicos", "rubro":true},
+        {"nombre":"Honorarios Médicos", "rubro":true},
+        {"nombre":"Viáticos y Movilidad", "rubro":true},
+        {"nombre":"Reuniones y Asambleas", "rubro":true},
+        {"nombre":"Útiles e Insumos", "rubro":true},
+        {"nombre":"Bienes de uso", "rubro":true},
+        {"nombre":"Remuneraciones", "rubro":true},
+        {"nombre":"Gastos de Limpieza", "rubro":true},
+        {"nombre":"Farmacia", "rubro":true},
+        {"nombre":"Gastos Cobranzas", "rubro":true},
+        {"nombre":"Comisiones de Recaudación", "rubro":true},
+        {"nombre":"Beneficios Varios", "rubro":true},
+        {"nombre":"Debito Fiscal Iva Básico", "rubro":true},
+        {"nombre":"Comisiones", "rubro":true},
+        {"nombre":"Impuestos", "rubro":true}
+    ]
+}

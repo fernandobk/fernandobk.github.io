@@ -6,11 +6,39 @@
 -->
 <html>
 	<head>
-		<title>Astral by HTML5 UP</title>
+		<title>Hugo Fernando Benitez Kleinert</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/lightbox.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			body{
+				line-height: 250%;
+			}
+			.mini-img{
+				width: 100px;
+				margin-left: 7vw;
+			}
+			.float-right{
+				float: right;
+			}
+			.pf-seccion{
+				margin: 10px;
+				padding: 20px;
+				border: 0px solid grey;
+				border-radius: 15px;
+			}
+			.pf-seccion > div {
+				padding-left: 20px;
+			}
+			.pf-seccion > div > a {
+				font-size: smaller;
+				color: grey;
+				font-style: italic !important;
+				display: inline-block;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -19,10 +47,11 @@
 
 				<!-- Nav -->
 					<nav id="nav">
-						<a href="#" class="icon solid fa-home"><span>Home</span></a>
-						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
-						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-						<a href="https://twitter.com/ajlkn" class="icon brands fa-twitter"><span>Twitter</span></a>
+						<a href="#" class="icon solid fa-home"><span>Inicio</span></a>
+						<a href="#skill" class="icon solid fa-tools"><span>Habilidades</span></a>
+						<a href="#work" class="icon solid fa-folder"><span>Portafolios</span></a>
+						<a href="#contact" class="icon solid fa-envelope"><span>Contacto</span></a>
+						<a href="https://github.com/fernandobk/" class="icon brands fa-github" target="_blank"><span>Github</span></a>
 					</nav>
 
 				<!-- Main -->
@@ -31,89 +60,160 @@
 						<!-- Me -->
 							<article id="home" class="panel intro">
 								<header>
-									<h1>Jane Doe</h1>
-									<p>Senior Astral Projectionist</p>
+									<h1>Hugo Fernando<br />Benitez Kleinert</h1>
+									<p>Técnico informático<br />Desarrollador Web <i>FullStack</i></p>
 								</header>
-								<a href="#work" class="jumplink pic">
-									<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
-									<img src="images/me.jpg" alt="" />
-								</a>
+								<span class="pic"><img src="images/foto.jpg" /></span>
 							</article>
 
-						<!-- Work -->
-							<article id="work" class="panel">
+						<!-- Habilidades -->
+							<article id="skill" class="panel">
 								<header>
-									<h2>Work</h2>
+									<h1>Habilidades</h1>
 								</header>
-								<p>
-									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-									luctus elit eget interdum.
-								</p>
-								<section>
-									<div class="row">
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
-										</div>
+								<div class="pf-seccion">
+									<h2>Habilidades no técnicas:</h2>
+									<div>
+										<i class="fas fa-chevron-right">&emsp;</i>Trabajo en equipo<br />
+										<i class="fas fa-chevron-right">&emsp;</i>Manejo del estres durante la resolución de problemas<br />
+										<i class="fas fa-chevron-right">&emsp;</i>Adaptación al espacio de trabajo<br />
+										<i class="fas fa-chevron-right">&emsp;</i>Autogestivo laboralmente<br />
+										<i class="fas fa-chevron-right">&emsp;</i>Taller: Agilidad & <i>SCRUM</i><br />
+										<i class="fas fa-chevron-right">&emsp;</i>Curso: Ingles para desarrollo de software</i><br />
+										<img class="lightbox mini-img" src="images/scrum_cert.png" />
+										<img class="lightbox mini-img" src="images/ingles_cert.png" />
 									</div>
-								</section>
+								</div>
+								<div class="pf-seccion">
+									<h2>Habilidades técnicas:</h2>
+									<div>
+										<i class="fas fa-chevron-right">&emsp;</i>Lenguaje: JavaScript<br />
+										<i class="fas fa-chevron-right">&emsp;</i>Lenguaje PHP<br />
+										<i class="fas fa-chevron-right">&emsp;</i>S.O. GNU/Linux, Debian / Ubuntu<br />
+										<i class="fas fa-chevron-right">&emsp;</i>Librería CSS: Bootstrap<br />
+										<i class="fas fa-chevron-right">&emsp;</i>Librería CSS: Bulma<br />
+										<i class="fas fa-chevron-right">&emsp;</i><i>Mercado Pago Certified Developer</i><br />
+										<img class="lightbox mini-img" src="images/mp_cert.png" /><br />
+									</div>
+								</div>
 							</article>
+
+						
+						<!-- Work -->
+						<article id="work" class="panel">
+							<header>
+								<h1>Portafolios</h1>
+							</header>
+							<div class="pf-seccion">
+								<h2><i>Front-end:&nbsp;</i>HTML & JavaScript</h2>
+								<div>
+									<i class="fas fa-chevron-right">&emsp;</i>
+									<span>Formularios simples e interactivos para carga de datos en sistema a través de API.</span><br />
+									<a href="/demos/tesoreria/carga.html" target="_blank">
+										<i class="fas fa-link">&nbsp;</i>
+										Ir a demostración "Tesoreria"
+									</a>
+									&emsp;
+									<a href="/demos/recaudaciones/carga.html" target="_blank">
+										<i class="fas fa-link">&nbsp;</i>
+										Ir a demostración "Recaudaciones"
+									</a>
+									<br />
+									<img class="lightbox mini-img" src="images/tesoreria_carga.png" />
+									<img class="lightbox mini-img" src="images/recaudaciones_carga.png" />
+								</div>
+								<hr />
+								<div>
+									<i class="fas fa-chevron-right">&emsp;</i>
+									<span>Listas con filtros para presentación de datos en Asoc. mutual</span><br />
+									<a href="/demos/tesoreria/lista.html" target="_blank">
+										<i class="fas fa-link">&nbsp;</i>
+										Ir a demostración "Tesoreria"
+									</a>
+									&emsp;
+									<a href="/demos/recaudaciones/lista.html" target="_blank">
+										<i class="fas fa-link">&nbsp;</i>
+										Ir a demostración "Recaudaciones"
+									</a>
+									<br />
+									<img class="lightbox mini-img" src="images/tesoreria_lista.png" />
+									<img class="lightbox mini-img" src="images/recaudaciones_lista.png" />
+								</div>								
+							</div>
+							<hr />
+							<div class="pf-seccion">
+								<h2><i>Back-end:&nbsp;</i>PHP & SQL</h2>
+								<div>
+									<i class="fas fa-chevron-right">&emsp;</i>
+									<span>Implementacion de API <i>Mercado Pago</i> en tienda en linea</span><br />
+									<a href="https://implementacion-mercadopago.herokuapp.com/" target="_blank">
+										<i class="fas fa-link">&nbsp;</i>
+										Ir a demostración
+									</a>
+									&emsp;
+									<a href="https://github.com/fernandobk/implementacion-mercadopago" target="_blank">
+										<i class="fas fa-link">&nbsp;</i>
+										Ir a repositorio
+									</a>
+									<br />
+									<img class="lightbox mini-img" src="images/mp_tienda.png" />
+									<img class="lightbox mini-img" src="images/mp_pago.png" />
+									<img class="lightbox mini-img" src="images/mp_pospago.png" />
+								</div>
+								<hr />
+								<div>
+									<i class="fas fa-chevron-right">&emsp;</i>
+									<span>Mini-aplicación para controlar en forma centralizada los precios y disponibilidades de productos en <i>WordPress WooCommerce</i></span><br />
+									<a href="demos/wooc.html" target="_blank">
+										<i class="fas fa-link">&nbsp;</i>
+										Ir a demostración
+									</a>
+									<br />
+									<img class="lightbox mini-img" src="images/wooc_control.png" />
+									<img class="lightbox mini-img" src="images/wooc_tienda.png" />
+								</div>
+								<hr />
+								<div>
+									<i class="fas fa-chevron-right">&emsp;</i>
+									<span>Sistema integrado de ventas y gestión para empresa privada local de distribución de agua purificada.</span><br />
+									<ul>
+										<li>Aplicacion móvil + Aplicacion Web para clientes</li>
+										<li>Aplicacion Web para administración</li>
+										<li>API REST</li>
+										<li>Web de presentación</li>
+										<li>Implementacion de pasarela de pagos</li>
+									</ul>
+									<a href="https://play.google.com/store/apps/details?id=comar.kayzaaguapura.compras" target="_blank">
+										<i class="fas fa-link">&nbsp;</i>
+										Ir a Google Play
+									</a>
+									<br />
+									<img class="lightbox mini-img" src="images/kayza_app.png" />
+									<img class="lightbox mini-img" src="images/kayza_adm.png" />
+								</div>
+								<hr />
+							</div>
+						</article>
 
 						<!-- Contact -->
 							<article id="contact" class="panel">
 								<header>
-									<h2>Contact Me</h2>
+									<h2>Contacto</h2>
 								</header>
-								<form action="#" method="post">
+								<form onsubmit="return false">
 									<div>
 										<div class="row">
 											<div class="col-6 col-12-medium">
-												<input type="text" name="name" placeholder="Name" />
+												<input type="text" id="nombre" placeholder="Su nombre" />
 											</div>
 											<div class="col-6 col-12-medium">
-												<input type="text" name="email" placeholder="Email" />
+												<input type="text" id="correo" placeholder="Correo electrónico" />
 											</div>
 											<div class="col-12">
-												<input type="text" name="subject" placeholder="Subject" />
+												<textarea id="mensaje" placeholder="Mensaje" rows="6"></textarea>
 											</div>
 											<div class="col-12">
-												<textarea name="message" placeholder="Message" rows="6"></textarea>
-											</div>
-											<div class="col-12">
-												<input type="submit" value="Send Message" />
+												<input type="submit" id="btn_enviar" class="float-right" value="Enviar" onclick="contacto_enviar()" />
 											</div>
 										</div>
 									</div>
@@ -125,7 +225,7 @@
 				<!-- Footer -->
 					<div id="footer">
 						<ul class="copyright">
-							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>Diseño: <a href="http://html5up.net">&copy; HTML5 UP</a></li>
 						</ul>
 					</div>
 
@@ -137,6 +237,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script src="assets/js/lightbox.js"></script>
+			<script src="assets/js/contacto.js"></script>
 	</body>
 </html>

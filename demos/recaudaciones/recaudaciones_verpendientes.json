@@ -1,0 +1,43 @@
+[{
+	"id": 625,
+	"fecha_alta": 1612177984,
+	"fecha_cobro": 1612148400,
+	"nro_recibo": "0-0",
+	"nro_acta": "0",
+	"periodo": "2021-01",
+	"monto_total": 98.7,
+	"observaciones": "",
+	"detalles": [{
+		"tipo": 0,
+		"monto": 98.5
+	}, {
+		"tipo": 1,
+		"monto": 0.1,
+		"nro_cheque": "0"
+	}, {
+		"tipo": 2,
+		"monto": 0.1,
+		"destino_transf": "Cta Cte 941-0"
+	}],
+	"rendido": null,
+	"recaudador": "Juan Pérez",
+	"empleador": "Florería Gustavo",
+	"cuit": 20987654321
+}, {
+	"id": 599,
+	"fecha_alta": 1611064555,
+	"fecha_cobro": 1611025200,
+	"nro_recibo": "1-1111",
+	"nro_acta": "2",
+	"periodo": "2020-12",
+	"monto_total": 1,
+	"observaciones": "prueba",
+	"detalles": [{
+		"tipo": 0,
+		"monto": 1
+	}],
+	"rendido": null,
+	"recaudador": "Raúl Pérez",
+	"empleador": "Rodriguez Roberto",
+	"cuit": 20123456789
+}]

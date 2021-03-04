@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Demo</title>
+        
+        <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="bootstrap.min.css" >
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+
+        <script src="funciones.js"></script>
+        <script>window.ameco = {"tmp":{},"username":"admin"}</script>
+    </head>
+    <body style="width: 75vw; margin: auto;">
+        <script src="recaudaciones.js"></script>
+
+        <div class="text-center mb-5">
+            <h1 class="my-5">Cargar operación de recaudación</h1>
+            <table class="table table-borderless border w-100">
+                <tr>
+                    <td>Fecha de cobro:</td>
+                    <td><input type="date" id="fecha_cobro" class="form-control" required="required" /></td>
+                </tr>
+                <tr>
+                    <td>Empleador:</td>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" id="empleador" class="form-control" list="dl_empleador" placeholder="Escriba para buscar..." onblur="carga.validar_empleador()" />
+                            <label id="empleador_cargando" class="input-group-text"><i class="spinner spinner-border spinner-border-sm"></i></label>
+                            <label id="error_empleador" class="input-group-text" hidden="hidden"><i class="fas fa-warning"></i></label>
+                        </div>
+                        <datalist id="dl_empleador"></datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Número de recibo</td>
+                    <td class="text-left">
+                        <input type="number" id="nro_recibo_1" class="form-control w-25 d-inline" required="required" min="0" max="99" maxlength="2" value="0" />
+                        &nbsp;&mdash;&nbsp;
+                        <input type="number" id="nro_recibo_2" class="form-control w-50 d-inline" required="required" min="0" max="99999" maxlength="5" value="0" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Número de acta</td>
+                    <td><input type="number" id="nro_acta" class="form-control" required="required" min="0" max="65535" /></td>
+                </tr>
+            </table>
+            <table class="table table-borderless border w-100">
+                <tr>
+                    <td>Período</td>
+                    <td>
+                        <div class="input-group">
+                            <label class="input-group-text">Año</label>
+                            <input type="number" id="periodo_año" class="form-control" value="2020" />
+                            <label class="input-group-text">Mes</label>
+                            <select id="periodo_mes" class="custom-select">
+                                <option value="01" selected="selected">Enero</option><option value="02">Febrero</option>
+                                <option value="03">Marzo</option><option value="04">Abril</option>
+                                <option value="05">Mayo</option><option value="06">Junio</option>
+                                <option value="07">Julio</option><option value="08">Agosto</option>
+                                <option value="09">Septiembre</option><option value="10">Octubre</option>
+                                <option value="11">Noviembre</option><option value="12">Diciembre</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Monto total del aporte colectivo:</td>
+                    <td>
+                        <div class="input-group">
+                            <label class="input-group-text">$</label>
+                            <input type="text" id="valor_total_aporte" class="form-control" placeholder="1000,00" pattern="[0-9]+([,?|.?][0-9]{0,2})?" onblur="carga.validar_monto(this)">
+                            <label class="input-group-text" hidden="hidden"><i class="fas fa-exclamation-triangle"></i></label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Observaciones</td>
+                    <td><textarea id="observaciones" class="form-control" rows="3" placeholder="Notas"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Detalles del pago:</td>
+                    <td>
+                        <div class="input-group">
+                            <button class="btn border fas fa-edit" onclick="$('#detallesdelpago').modal('show')"></button>
+                            <label class="input-group-text">Efectivo</label>
+                            <input id="detalle_efectivo" class="form-control bg-white" readonly="readonly" />
+                            <label class="input-group-text">Cheques</label>
+                            <input id="detalle_cheques" class="form-control bg-white" readonly="readonly" />
+                            <label class="input-group-text">Transferencias</label>
+                            <input id="detalle_transferencias" class="form-control bg-white" readonly="readonly" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="btn btn-lg btn-primary mt-3" onclick="carga.btn_agregar()"><i class="fas fa-plus"></i>&nbsp;Agregar</button>
+                    </td>
+                </tr>
+            </table>
+            
+            <table class="table mt-5">
+                <thead>
+                    <th>#</th>
+                    <th>Período</th>
+                    <th>Monto total</th>
+                    <th>Observaciones</th>
+                    <th>Detalles</th>
+                    <th><i class="fas fa-bars"></i></th>
+                </thead>
+                <tbody id="tabla_operaciones"></tbody>
+            </table>
+            <i id="tabla_ops_sin_datos">Aún no hay datos en esta tabla<br /></i>
+
+            <div class="mt-5">
+                <button class="btn btn-lg btn-success" onclick="carga.btn_guardar()"><i class="fas fa-database">&nbsp;</i>Guardar</button>
+                <button class="btn btn-link" onclick="location.href='/'">Cancelar</button>
+                <button class="btn btn-link" onclick="location.href='lista.html'">Ver Lista de recaudaciones</button>
+            </div>
+            
+        </div>
+
+        <div class="modal" id="detallesdelpago" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <strong>Detalles del pago</strong><br />
+                            <i class="small">Use puntos para decimales</i>
+                        </h5>
+                    </div>
+                    <div class="modal-body text-center">
+                        <div class="contaniner">
+                            <div class="row">
+                                <div class="col border mx-1 p-3 w-25">
+                                    <label>Efectivo</label>
+                                    <input type="text" id="valor_pago_0" class="form-control mb-1" placeholder="$ Monto" title="Monto" pattern="[0-9]+([.?][0-9]{0,2})?" onblur="this.value=this.value.replace(',','.')" />
+                                    <input class="form-control mb-1" style="visibility: hidden;" /><!--Sin uso, solo estética-->
+                                    <button class="btn btn-sm btn-success" onclick="carga.carga_fp(0)">Agregar</button>
+                                </div>
+                                <div class="col border mx-1 p-3 w-25">
+                                    <label>Cheque</label>
+                                    <input type="text" id="valor_pago_1" class="form-control mb-1" placeholder="$ Monto" title="Monto" pattern="[0-9]+([.?][0-9]{0,2})?" onblur="this.value=this.value.replace(',','.')" />
+                                    <input type="text" id="nro_cheque" class="form-control mb-1" placeholder="Nro Cheque" title="Número de cheque" />
+                                    <button class="btn btn-sm btn-success" onclick="carga.carga_fp(1)">Agregar</button>
+                                </div>
+                                <div class="col border mx-1 p-3 w-25">
+                                    <label>Transferencia</label>
+                                    <input type="text" id="valor_pago_2" class="form-control mb-1" placeholder="$ Monto" title="Monto" pattern="[0-9]+([.?][0-9]{0,2})?" onblur="this.value=this.value.replace(',','.')" />
+                                    <!--<input type="text" id="nro_operacion" class="form-control mb-1" placeholder="Nro Operación" title="Número de operación bancaria" />
+                                    <input type="text" id="fecha_op_transf" class="form-control mb-1" placeholder="Fecha operación" title="Fecha de operacion Transferencia" onclick="this.type='date'" />-->
+                                    <select id="sel_destino_transf" class="custom-select mb-1"><option disabled selected>Destino</option></select>
+                                    <button class="btn btn-sm btn-success" onclick="carga.carga_fp(2)">Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <table class="table">
+                            <thead class="">
+                                <tr>
+                                    <th>#</th><th>Monto</th><th>Medio</th><th>Detalles</th><th>&equiv;</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla_detalles_cobro"></tbody>
+                        </table>
+                        <i id="tabla_sin_datos">Agregue datos en los campos de arriba</i>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="carga.calc_totales_modal()">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let carga = new Recaudaciones;
+            carga.carga_init();
+
+            function borrar_fp(id){
+                carga.formasdepago.splice(id, 1);
+                carga.dibujar_tabla_fp();
+            }
+
+            function borrar_ops(id){
+                carga.operaciones.splice(id, 1);
+                carga.dibujar_tabla_ops();
+            }
+        </script>
+    </body>
+</html>

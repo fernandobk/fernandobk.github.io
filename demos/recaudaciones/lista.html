@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Demo - Terorería - Cargar</title>
+        
+        <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="bootstrap.min.css" >
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+
+        <script src="funciones.js"></script>
+        <script>window.ameco = {"tmp":{},"username":"admin"}</script>
+    </head>
+    <body style="width: 75vw; margin: auto;">
+        <script src="recaudaciones.js"></script>
+
+        <section class="pl-5 my-5">
+            <div id="titulo" class="h1">Lista de recaudaciones</div>
+            <div id="subtitulo" class="pl-5"></div>
+            <div class="pl-5">Cantidad de registros: <span id="cant_registros">--</span></div>
+            <div class="pl-5">Ordenados del más nuevo al más viejo.</div>
+        </section>
+
+        <section class="mb-5">
+            <table class="table table-striped">
+                <thead>
+                    <th>#</th><th>Empleador</th><th>Fecha de Alta</th><th>Monto</th><th>Opciones</th>
+                </thead>
+                <tbody id="tabla"></tbody>
+            </table>
+            
+            <div class="text-center py-3">
+                <i id="tabla_cargando" class="spinner-border"></i><br />
+                <i id="tabla_sin_datos" hidden="hidden">No hay datos para mostrar</i>
+            </div>
+
+            <table class="table text-center">
+                <tr><td colspan="4"><strong>Totales</strong></td></tr>
+                <tr>
+                    <td>En Efectivo</td><td>En Cheques</td><td>Transferencia</td><td>TOTAL</td>
+                </tr>
+                <tr id="tabla_totales" class="font-weight-bold">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <div class="text-center py-3">
+                <button class="btn btn-lg btn-primary" onclick="location.href='carga.html'">Cargar operaciones</button>
+            </div>
+        </section>
+
+        <div id="modal_detalles" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Detalles</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <tr>
+                                <td>Registro</td>
+                                <td><i id="id_recaudaciones"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Empleador:<br />(CUIT)</td>
+                                <td><strong id="empleador"></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Fecha de alta de registro:</td>
+                                <td><strong id="fecha_alta">fhfghfg</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Fecha de cobranza:</td>
+                                <td><strong id="fecha_cobro"></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Número de recibo:</td>
+                                <td><strong id="nro_recibo"></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Número de acta:</td>
+                                <td><strong id="nro_acta"></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Período:</td>
+                                <td><strong id="periodo"></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Monto total del aporte colectivo:</td>
+                                <td><strong id="monto_total"></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Observaciones:</td>
+                                <td><strong id="observaciones"></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Fecha de rendición:</td>
+                                <td><strong id="rendido"></strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <label>Detalles:</label>
+                                    <div id="detalles" class="px-5"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" hidden="hidden">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let recaudaciones = new Recaudaciones;
+                recaudaciones.listar();
+        </script>
+    </body>
+</html>
