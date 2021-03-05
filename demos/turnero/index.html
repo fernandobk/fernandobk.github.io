@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control - Turnero</title>
+    <script src="funciones.js"></script>
+
+    <style>
+        body{
+            width: 60%;
+            margin: auto;
+            text-align: center;
+            line-height: 333%;
+        }
+        #turnoactual{
+            font-size: 72px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Control de Turnero</h1>
+    <a href="visor.html" target="_blank">Abrir visor</a>
+    &emsp;
+    <i>(En el visor, toque F11 para pantalla completa.)</i>
+    <hr />
+
+    <label for="puesto">Número de puesto</label>
+    <input type="number" id="puesto" value="1" required="required" />
+    <br />
+
+    <label for="nombre">Nombre de operador</label>
+    <input type="text" id="nombre" value="" required="required" />
+    <hr />
+
+    <label for="turnoactual">Turno actual</label><br />
+    <span id="turnoactual">--</span><br />
+    <button id="btn_turnoactual" onclick="actualizar_turno_actual()">Actualizar turno actual</button>
+    <hr />
+
+    <button id="btn_llamar_siguiente" onclick="llamar_siguiente()">Llamar a siguiente número</button><br />
+    <button id="btn_llamar_anterior" onclick="llamar_anterior()">Llamar al número anterior</button><br />
+    <button onclick="otro_numero.hidden=!otro_numero.hidden">Llamar a número específico</button><br />
+
+    <div id="otro_numero" style="border: 1px solid black;" hidden="hidden">
+        <input type="number" id="numero" />
+        <button id="btn_llamar_otro" onclick="llamar_otro()">Llamar a número específico</button>
+    </div>
+    
+    <progress id="progreso" value="1"></progress>
+
+    <script>actualizar_turno_actual()</script>
+</body>
+</html>

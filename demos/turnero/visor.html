@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Visor - Turnero</title>
+        <script src="funciones.js"></script>
+
+        <style>
+            script{display: none;}
+            body{
+                font-family: 'Arial Narrow Bold', sans-serif;
+                background-color: black;
+                overflow: hidden;
+                color: white;
+                margin: 0%;
+                padding: 0%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            table{
+                width: 100%;
+                height: 100%;
+            }
+            td{
+                line-height: 0.9;
+            }
+            .etiquetas{
+                font-size: 7vh;
+                margin-left: 40vw;
+            }
+            #numero{
+                text-align: left;
+                width: 60vw;
+                font-size: 70vh;
+                font-weight: 900;
+            }
+            #puesto{
+                text-align: right;
+                width: 40vw;
+                font-size: 60vh;
+                color: yellowgreen;
+            }
+            #nombre{
+                text-align: center;
+                font-size: 30vh;
+                color: yellowgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr class="etiquetas">
+                <td>Turno</td><td>Puesto</td>
+            </tr>
+            <tr>
+                <td id="numero"></td><td id="puesto"></td>
+            </tr>
+            <tr>
+                <td id="nombre" colspan="2"></td>
+            </tr>
+        </table>
+
+        <audio id="dingdong" src="dingdong.mp3" preload="auto" hidden="hidden"></audio>
+
+        <script>visor()</script>
+    </body>
+</html>
