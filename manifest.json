@@ -1,0 +1,15 @@
+{
+  "background_color": "none",
+  "description": "",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "fernandobk.github",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "fernandobk.github",
+  "start_url": "/",
+  "theme_color": "none",
+  "categories": [],
+  "screenshots": [],
+  "shortcuts": []
+}
