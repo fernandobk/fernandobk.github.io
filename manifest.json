@@ -1,5 +1,5 @@
 {
-  "background_color": "none",
+  "background_color": "#d79c8b",
   "description": "",
   "dir": "ltr",
   "display": "standalone",
@@ -8,7 +8,7 @@
   "scope": "/",
   "short_name": "fernandobk.github",
   "start_url": "/",
-  "theme_color": "none",
+  "theme_color": "#ffffff",
   "categories": [],
   "screenshots": [],
   "shortcuts": []
