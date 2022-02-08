@@ -1,4 +1,4 @@
-const datauri = 'https://jsonstorage.net/api/items/530aa4b9-bf7d-40b0-86ee-d3d9ee0fbb47';
+// await fetch('https://api.jsonbin.io/v3/b', {method: 'POST', body: '{"":""}', headers: {'Content-Type': 'application/json', 'X-Bin-Private': false, 'X-Bin-Name':'turnos', 'X-Master-Key': '$2b$10$e9hka2uXqiI51ffQjR2zj.x.RW11VhFa7yJ5Ydu4x0z58ap1MKsLi'}});
 
 async function consultar(){
     let data = await fetch('https://api.jsonbin.io/v3/b/6201d77669b72261be544170', {headers: {'X-Bin-Meta':false}});
