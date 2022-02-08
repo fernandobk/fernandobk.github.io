@@ -1,8 +1,7 @@
-// BD: https://jsonstorage.net/
 const datauri = 'https://jsonstorage.net/api/items/530aa4b9-bf7d-40b0-86ee-d3d9ee0fbb47';
 
 async function consultar(){
-    let data = await fetch(datauri);
+    let data = await fetch('https://api.jsonbin.io/v3/b/6201d77669b72261be544170', {headers: {'X-Bin-Meta':false}});
     if( data.status === 200 ){ return await data.json(); } else { return false; }
 }
 
@@ -53,15 +52,19 @@ async function cambiar(n){
     } );
 
     let f = await fetch(
-        'https://jsonstorage.net/api/items/530aa4b9-bf7d-40b0-86ee-d3d9ee0fbb47',
+        'https://api.jsonbin.io/v3/b/6201d77669b72261be544170',
         {
             method: 'PUT', 
             body: data, 
-            headers: {'Content-Type': 'application/json'}
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key':'$2b$10$e9hka2uXqiI51ffQjR2zj.x.RW11VhFa7yJ5Ydu4x0z58ap1MKsLi',
+                'X-Bin-Versioning':false
+            }
         }
     );
 
-    if( f.status === 201 ){ await actualizar_turno_actual(); }
+    if( f.status === 200 ){ await actualizar_turno_actual(); }
 }
 
 async function llamar_siguiente(){
