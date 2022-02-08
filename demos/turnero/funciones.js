@@ -73,6 +73,7 @@ async function llamar_siguiente(){
 
     data = await consultar();
     n = data.numero + 1;
+    if( n > 999 ){ n = 0; }
     await cambiar(n);
 
     setTimeout(() => {
@@ -87,6 +88,7 @@ async function llamar_anterior(){
 
     data = await consultar();
     n = data.numero - 1;
+    if( n < 0 ){ n = 999; }
     await cambiar(n);
 
     setTimeout(() => {
@@ -96,6 +98,8 @@ async function llamar_anterior(){
 }
 
 async function llamar_otro(){
+    if( numero.value < 0 || numero.value > 999 ){ return; }
+    
     btn_llamar_otro.disabled = true;
     btn_llamar_otro.innerText = 'Espere...';
 
