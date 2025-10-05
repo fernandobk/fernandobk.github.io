@@ -23,7 +23,7 @@ async function contacto_enviar(){
         alert('Su mensaje de envió correctamente. Muchas gracias.');
     }else{
         console.info(f);
-        alert('Hubo un problema enviando el mensaje. Por favor intente mas tarde, o visite el prefil de Github.')
+        alert('Hubo un problema enviando el mensaje. Por favor intente mas tarde.')
     }
 
     btn_enviar.value = 'Enviar';
