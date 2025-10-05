@@ -11,7 +11,7 @@ async function contacto_enviar(){
     }
     msj = JSON.stringify(msj);
 
-    let f = await fetch('https://hfbk.000webhostapp.com/form_contacto_web.php',{
+    let f = await fetch('form_contacto_web.php',{
         method: 'POST',
         body: msj
     });
